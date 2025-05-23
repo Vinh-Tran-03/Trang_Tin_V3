@@ -112,12 +112,21 @@ router.post('/timkiem', async (req, res) => {
 	var tukhoa = req.body.tukhoa;
 	
 	// Xử lý tìm kiếm bài viết
-	var bv = [];
+	var bv = await BaiViet.find({
+		KiemDuyet: 1,
+		$or: [ // tìm kiếm theo từ khoá ko phân biệt hoa thường
+			{ TieuDe: { $regex: tukhoa, $options: 'i' } },
+			{ NoiDung: { $regex: tukhoa, $options: 'i' } }
+		]
+	})
+	.populate('ChuDe')
+	.populate('TaiKhoan');
 	
 	res.render('timkiem', {
 		title: 'Kết quả tìm kiếm',
 		baiviet: bv,
-		tukhoa: tukhoa
+		tukhoa: tukhoa,
+		firstImage: firstImage // hiển thị hình ảnh đi kèm
 	});
 });
 
