@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 		title: 'Trang chủ',
 		chuyenmuc: cm,
 		baiviet: bv,
-		Xemnhieunhat: xnn,
+		xemnhieunhat: xnn,
 		firstImage: firstImage
 	});
 
@@ -62,7 +62,7 @@ router.get('/baiviet/chude/:id', async (req, res) => {
 		chuyenmuc: cm,
 		chude: cd,
 		baiviet: bv,
-		Xemnhieunhat: xnn,
+		xemnhieunhat: xnn,
 		firstImage: firstImage
 	});
 });
@@ -95,7 +95,7 @@ router.get('/baiviet/chitiet/:id', async (req, res) => {
 		title: 'Bài viết chi tiết',
 		chuyenmuc: cm,
 		baiviet: bv,
-		Xemnhieunhat: xnn,
+		xemnhieunhat: xnn,
 		firstImage: firstImage
 	});
 });
